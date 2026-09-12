@@ -1624,7 +1624,7 @@ image-slot {
   inset: auto -10% -40% auto;
   width: 70%; aspect-ratio: 1/1;
   color: #fff;
-  opacity: 0.04;
+  opacity: 0.14;
   pointer-events: none;
   animation: logoSpin 120s linear infinite;
   z-index: 0;
