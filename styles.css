@@ -1621,8 +1621,12 @@ image-slot {
 }
 .footer__watermark-mark {
   position: absolute;
-  inset: auto -18% -55% auto;
+  /* Centrada en el panel. No uso transform: translate(-50%,-50%) para
+     centrar porque la animacion de giro ya ocupa la propiedad transform
+     (rotate) y la pisaria — centro con margenes negativos en su lugar. */
+  top: 50%; left: 50%;
   width: 95%; aspect-ratio: 1/1;
+  margin-top: -47.5%; margin-left: -47.5%;
   color: #fff;
   opacity: 0.14;
   pointer-events: none;
