@@ -1621,8 +1621,8 @@ image-slot {
 }
 .footer__watermark-mark {
   position: absolute;
-  inset: auto -10% -40% auto;
-  width: 70%; aspect-ratio: 1/1;
+  inset: auto -18% -55% auto;
+  width: 95%; aspect-ratio: 1/1;
   color: #fff;
   opacity: 0.14;
   pointer-events: none;
