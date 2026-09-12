@@ -3,21 +3,25 @@
    =========================================================== */
 
 :root {
-  /* Tema claro: negro sobre blanco */
-  --bg: #ffffff;
-  --bg-soft: #f4f4f4;
-  --ink: #000000;
-  --ink-2: #1a1a1a;
-  --muted: #6b6b6b;
-  --line: rgba(0,0,0,0.12);
-  --line-2: rgba(0,0,0,0.22);
-  --card: #ffffff;
+  /* Tema claro: gris carbón sobre blanco hueso.
+     Antes era negro puro (#000) sobre blanco puro (#fff): mucho brillo y
+     mucho contraste duro, cansa la vista en sesiones largas. Bajamos el
+     blanco a un hueso tenue y el negro a un carbón oscuro — el contraste
+     de lectura sigue siendo altísimo (~14:1), pero sin el golpe visual. */
+  --bg: #f6f5f2;
+  --bg-soft: #ebe9e5;
+  --ink: #1c1b19;
+  --ink-2: #38352f;
+  --muted: #6e6a63;
+  --line: rgba(28,27,25,0.12);
+  --line-2: rgba(28,27,25,0.22);
+  --card: #f9f8f5;
   --accent: #ff00ff;                        /* magenta de marca */
   --accent-2: #ff7bff;                      /* magenta claro */
   --accent-glow: color-mix(in srgb, var(--accent) 35%, transparent);
   /* Sobre fondo claro el logo blanco desaparece; en tema oscuro y sobre los
      paneles negros se mantiene blanco. */
-  --logo: #000000;
+  --logo: #1c1b19;
   --panel: #000000;                         /* paneles invertidos: intro y footer */
 
   --font-display: 'Space Grotesk', 'Helvetica Neue', sans-serif;
