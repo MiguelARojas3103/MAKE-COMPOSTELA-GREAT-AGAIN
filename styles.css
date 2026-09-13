@@ -1627,8 +1627,8 @@ image-slot {
      (bottom, con margen) y lo achicamos un poco mas para que entre
      completo sin importar la altura real del footer. */
   left: 50%;
-  bottom: 4%;
-  width: min(60vw, 55vh, 640px);
+  bottom: 2%;
+  width: min(90vw, 85vh, 980px);
   aspect-ratio: 1/1;
   color: #fff;
   opacity: 0.14;
