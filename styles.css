@@ -1621,13 +1621,14 @@ image-slot {
 }
 .footer__watermark-mark {
   position: absolute;
-  /* El footer es mucho mas ancho que alto: un cuadrado al 95% del ANCHO
-     quedaba mucho mas alto que el panel y el overflow:hidden lo recortaba
-     por arriba y por abajo, dejando ver solo una tajada del centro (se
-     veia "cortada"). Acotamos tambien por vh para que el cuadrado quepa
-     entero en la altura real del panel. */
-  top: 50%; left: 50%;
-  width: min(70vw, 60vh);
+  /* El footer es mucho mas ancho que alto: centrado verticalmente
+     (top:50%) seguia quedando mas alto que el panel real y el
+     overflow:hidden lo recortaba arriba y abajo. Lo anclamos abajo
+     (bottom, con margen) y lo achicamos un poco mas para que entre
+     completo sin importar la altura real del footer. */
+  left: 50%;
+  bottom: 6%;
+  width: min(40vw, 32vh, 360px);
   aspect-ratio: 1/1;
   color: #fff;
   opacity: 0.14;
@@ -1636,8 +1637,8 @@ image-slot {
   z-index: 0;
 }
 @keyframes footerWatermarkSpin {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to   { transform: translate(-50%, -50%) rotate(360deg); }
+  from { transform: translateX(-50%) rotate(0deg); }
+  to   { transform: translateX(-50%) rotate(360deg); }
 }
 .footer > * { position: relative; z-index: 1; }
 
