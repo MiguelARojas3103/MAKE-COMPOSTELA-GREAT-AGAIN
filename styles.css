@@ -1632,7 +1632,7 @@ image-slot {
      todavia tiene que sobrepasar el viewport a proposito y dejar que el
      overflow:hidden del footer la recorte por los costados — es la unica
      forma de crecer mas alla del tamano del propio panel. */
-  width: min(150vw, 130vh, 2000px);
+  width: min(210vw, 180vh, 2800px);
   aspect-ratio: 1/1;
   color: #fff;
   opacity: 0.14;
