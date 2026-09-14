@@ -1676,7 +1676,10 @@ image-slot {
    La achicamos solo debajo de 640px, sin tocar el tamano de escritorio. */
 @media (max-width: 640px) {
   .footer__watermark-mark {
-    width: min(88vw, 54vh, 380px);
+    /* Calibrado a ~5cm de ancho horizontal en un iPhone estandar:
+       390px CSS ≈ 7.15cm de pantalla fisica, asi que 70vw ≈ 5cm y
+       escala igual de bien en iPhones mas grandes (Pro Max, etc). */
+    width: min(70vw, 42vh, 320px);
   }
 }
 .footer > * { position: relative; z-index: 1; }
