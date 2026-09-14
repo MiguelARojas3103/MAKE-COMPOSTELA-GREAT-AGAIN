@@ -767,6 +767,14 @@ img { max-width: 100%; display: block; }
 /* --- Fondo: loop de video desenfocado --- */
 .session__bg {
   position: absolute; inset: 0;
+  /* Antes dependia 100% de la altura calculada de .session (el padre). Si
+     esa altura queda corta un instante (p.ej. al entrar en pantalla
+     completa con F11, antes de que el layout termine de acomodarse), el
+     fondo se quedaba corto tambien. Fijarlo directo al alto de pantalla
+     lo desacopla del padre: siempre llena la pantalla entera, pase lo que
+     pase con .session. */
+  height: 100vh;
+  height: 100svh;
   z-index: 0;
   pointer-events: none;
 }
