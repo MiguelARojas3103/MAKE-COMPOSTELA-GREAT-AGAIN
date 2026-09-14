@@ -76,6 +76,7 @@ function Nav() {
       <div className="nav__links">
         <a href="#about">Sobre</a>
         <a href="#showreel">Showreel</a>
+        <a href="#session">Última sesión</a>
         <a href="#services">Servicios</a>
         <a href="#pricing">Booking</a>
       </div>

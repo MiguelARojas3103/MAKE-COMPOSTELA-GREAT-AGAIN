@@ -743,8 +743,10 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   isolation: isolate;
   /* Pantalla completa: al bajar hasta aqui la seccion se lee como un plano
-     entero de video, no como una franja. svh en vez de vh para que la barra
-     del navegador movil no deje un trozo cortado. */
+     entero de video, no como una franja. 100vh primero como respaldo para
+     navegadores viejos; svh despues para que la barra del navegador movil
+     no deje un trozo cortado (svh gana si el navegador lo soporta). */
+  min-height: 100vh;
   min-height: 100svh;
   display: grid;
   align-content: center;

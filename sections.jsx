@@ -186,6 +186,7 @@ function useSubidaAlScroll(ref) {
       return;
     }
     let raf = 0;
+    let retraso = 0;
     const calcular = () => {
       raf = 0;
       const r = el.getBoundingClientRect();
@@ -195,13 +196,28 @@ function useSubidaAlScroll(ref) {
       el.style.setProperty("--avance", Math.min(1, Math.max(0, p)).toFixed(4));
     };
     const alScroll = () => { if (!raf) raf = requestAnimationFrame(calcular); };
+    /* Al entrar/salir de pantalla completa (F11 o la Fullscreen API) el
+       navegador dispara "resize" a veces un frame antes de terminar de
+       acomodar el layout: el calculo de arriba corre con un vh o un
+       getBoundingClientRect todavia viejos y la seccion queda "congelada"
+       sin llegar a --avance:1, dejando ver una franja del fondo de la
+       pagina por arriba. Un recalculo de respaldo un poco despues corrige
+       eso sin tocar el comportamiento normal del scroll. */
+    const alCambiarPantalla = () => {
+      alScroll();
+      clearTimeout(retraso);
+      retraso = setTimeout(calcular, 250);
+    };
     calcular();
     window.addEventListener("scroll", alScroll, { passive: true });
-    window.addEventListener("resize", alScroll);
+    window.addEventListener("resize", alCambiarPantalla);
+    document.addEventListener("fullscreenchange", alCambiarPantalla);
     return () => {
       window.removeEventListener("scroll", alScroll);
-      window.removeEventListener("resize", alScroll);
+      window.removeEventListener("resize", alCambiarPantalla);
+      document.removeEventListener("fullscreenchange", alCambiarPantalla);
       if (raf) cancelAnimationFrame(raf);
+      clearTimeout(retraso);
     };
   }, []);
 }
