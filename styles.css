@@ -1676,7 +1676,7 @@ image-slot {
    La achicamos solo debajo de 640px, sin tocar el tamano de escritorio. */
 @media (max-width: 640px) {
   .footer__watermark-mark {
-    width: min(72vw, 44vh, 300px);
+    width: min(88vw, 54vh, 380px);
   }
 }
 .footer > * { position: relative; z-index: 1; }
