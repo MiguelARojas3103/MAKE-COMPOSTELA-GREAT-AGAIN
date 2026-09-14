@@ -1627,8 +1627,12 @@ image-slot {
      (bottom, con margen) y lo achicamos un poco mas para que entre
      completo sin importar la altura real del footer. */
   left: 50%;
-  bottom: 2%;
-  width: min(90vw, 85vh, 980px);
+  bottom: 0%;
+  /* Ya tocaba el 100% del ancho del panel: para que se vea mas grande
+     todavia tiene que sobrepasar el viewport a proposito y dejar que el
+     overflow:hidden del footer la recorte por los costados — es la unica
+     forma de crecer mas alla del tamano del propio panel. */
+  width: min(150vw, 130vh, 2000px);
   aspect-ratio: 1/1;
   color: #fff;
   opacity: 0.14;
