@@ -50,7 +50,14 @@
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* "proximity" y no "mandatory": solo imanta cuando el scroll termina
+     cerca de un punto de anclaje, y el unico punto que existe es la
+     seccion de ultima sesion (ver .session). El resto de la pagina
+     scrollea normal, sin sentirse atrapado. */
+  scroll-snap-type: y proximity;
+}
 
 body {
   background: var(--bg);
@@ -762,6 +769,11 @@ img { max-width: 100%; display: block; }
      hace leer la seccion como un panel que sube por encima de la anterior. */
   border-top-left-radius: calc((1 - var(--avance)) * 26px);
   border-top-right-radius: calc((1 - var(--avance)) * 26px);
+  /* La seccion mide exactamente una pantalla, asi que PUEDE verse entera —
+     el problema es acertarle con el scroll. El iman la centra sola cuando
+     pasas cerca, y ahi si llena la pantalla de borde a borde. Agrandarla
+     seria contraproducente: si mide mas que la pantalla, ya nunca entra. */
+  scroll-snap-align: center;
 }
 
 /* --- Fondo: loop de video desenfocado --- */
@@ -923,6 +935,8 @@ img { max-width: 100%; display: block; }
   .session__card img { transition: none; }
   .session { --avance: 1; transform: none; border-radius: 0; }
   .session__inner { opacity: 1; transform: none; }
+  /* Quien pide menos movimiento no quiere que el scroll se le mueva solo. */
+  html { scroll-snap-type: none; }
 }
 
 /* ============ Certificate ============ */
